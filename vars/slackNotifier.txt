@@ -1,0 +1,7 @@
+<strong>notifier(teamDomain, tokenCredentialId, channel)</strong>
+
+<p>
+    Sends notifications via Slack.
+    Defaults the sending "Failure", "Still Failure" and "Back to normal" notifications.
+    Pass the slack configuration for sending the notification.
+</p>
