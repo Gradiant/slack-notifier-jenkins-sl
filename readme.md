@@ -1,4 +1,4 @@
-# Slack Notifier for Jenkins via Shared Library
+# Slack Notifier for Jenkins via Shared Library (Unstable)
 
 This is a shared library for Jenkins Pipeline. Extracts build information in the same format as normal slack plugin does. By now it send the following notifications:
 
