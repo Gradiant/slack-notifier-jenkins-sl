@@ -44,7 +44,7 @@ notifyError(error): Send a message with the value of the error message.
 * Import the library as Global Shared Library [(you can follow this examples)](https://jenkins.io/blog/2017/02/15/declarative-notifications/)
 * Use it in your Jenkinsfile:
 
-
+#### Scripted pipeline
 ```groovy
 def notifier = new org.gradiant.jenkins.slack.SlackNotifier()
 
@@ -74,5 +74,27 @@ try {
 
   // Notify the build result with a list of changes
   notifier.notifyResult()
+}
+```
+
+#### Declarative pipeline
+```
+pipeline {
+
+ environment {
+  SLACK_CHANNEL = 'my-channel'
+  SLACK_DOMAIN  = 'my-team-domain'
+  SLACK_CREDENTIALS = 'jenkins-slack-credentials-id'
+  CHANGE_LIST = true
+  TEST_SUMMARY = true
+ }
+
+ post {
+  failure {
+   script {
+    new SlackNotifier().notifyResult()
+   }
+  }
+ }
 }
 ```
